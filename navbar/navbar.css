@@ -93,15 +93,14 @@ body {
 }
 
 .clickCircle {
-  width: 2em;
-  height: 2em;
-  background-color: #30ff00;
+  width: 2.2em;
+  height: 2.2em;
+  background-color: #fdff00;
   border: 5px solid #222;
   border-radius: 50%;
 
   position: absolute;
-  top: -1.5em;
-  left: 1.1em;
+  top: -1.6em;
 
   z-index: 1;
 
@@ -111,4 +110,10 @@ body {
 /* utils */
 .avoid-clicks {
   pointer-events: none;
+}
+
+.disappear {
+  opacity: 0;
+
+  transform: translateY(1.1em);
 }

@@ -17,7 +17,7 @@
     <nav class="nav">
       <ul>
         <li>
-          <div data-id="1">
+          <div data-id="1" class="clicked">
             <span class="material-icons ic avoid-clicks"> home </span>
             <span class="title avoid-clicks">Home</span>
           </div>
@@ -66,14 +66,21 @@
     ulEl.addEventListener('click', e => {
       // 클릭한 디브의 아이디를 가져온다.
       const clickDivId = e.target.dataset.id;
+      console.log(clickDivId);
       // 포문을 돌면서 해당 디브의 아이디를 가진놈은 클래스를 추가하고, 나머지는 클래스를 제거한다.
       divListEl.forEach(div => {
         const currentId = div.dataset.id;
 
+        if (clickDivId === undefined) {
+          circleEl.classList.add('disappear');
+        } else {
+          circleEl.classList.remove('disappear');
+        }
+
         if (currentId === clickDivId) {
           div.classList.add('clicked');
           // 원의 레프트 값이 -3.35 + (아이디 * 4.45)
-          circleEl.style.left = `${-3.35 + currentId * 4.45}em`;
+          circleEl.style.left = `${-3.45 + currentId * 4.45}em`;
         } else {
           div.classList.remove('clicked');
         }
