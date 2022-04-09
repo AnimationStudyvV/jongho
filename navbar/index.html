@@ -17,36 +17,56 @@
     <nav class="nav">
       <ul>
         <li>
-          <div>
-            <span class="material-icons ic"> home </span>
-            <span class="title">Home</span>
+          <div data-id="1">
+            <span class="material-icons ic avoid-clicks"> home </span>
+            <span class="title avoid-clicks">Home</span>
           </div>
         </li>
         <li>
-          <div>
-            <span class="material-icons ic"> person_outline </span>
-            <span class="title">User</span>
+          <div data-id="2">
+            <span class="material-icons ic avoid-clicks"> person_outline </span>
+            <span class="title avoid-clicks">User</span>
           </div>
         </li>
         <li>
-          <div>
-            <span class="material-icons ic"> mode_comment </span>
-            <span class="title">Chat</span>
+          <div data-id="3">
+            <span class="material-icons ic avoid-clicks"> mode_comment </span>
+            <span class="title avoid-clicks">Chat</span>
           </div>
         </li>
         <li>
-          <div>
-            <span class="material-icons ic"> photo_camera </span>
-            <span class="title">Camera</span>
+          <div data-id="4">
+            <span class="material-icons ic avoid-clicks"> photo_camera </span>
+            <span class="title avoid-clicks avoid-clicks">Camera</span>
           </div>
         </li>
         <li>
-          <div>
-            <span class="material-icons ic"> settings </span>
-            <span class="title">Setting</span>
+          <div data-id="5">
+            <span class="material-icons ic avoid-clicks"> settings </span>
+            <span class="title avoid-clicks">Setting</span>
           </div>
         </li>
       </ul>
     </nav>
   </body>
+
+  <script>
+    const ulEl = document.querySelector('.nav > ul');
+    const divListEl = document.querySelectorAll('.nav > ul > li > div');
+
+    ulEl.addEventListener('click', e => {
+      // 클릭한 디브의 아이디를 가져온다.
+      const clickDivId = e.target.dataset.id;
+      // 포문을 돌면서 해당 디브의 아이디를 가진놈은 클래스를 추가하고, 나머지는 클래스를 제거한다.
+      divListEl.forEach(div => {
+        const currentId = div.dataset.id;
+
+        if (currentId === clickDivId) {
+          div.classList.add('clicked');
+        } else {
+          div.classList.remove('clicked');
+        }
+      });
+    });
+  </script>
 </html>
