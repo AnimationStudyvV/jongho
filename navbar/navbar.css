@@ -1,0 +1,110 @@
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  html {
+    font-size: 30px;
+  }
+}
+
+body {
+  background-color: #222;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+
+  border-radius: 0.5em;
+}
+
+.nav > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 0.75em;
+}
+.nav > ul > li {
+  padding: 0.5em;
+
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.nav > ul > li > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0.5em;
+
+  transition: all 100ms;
+
+  cursor: pointer;
+
+  z-index: 2;
+}
+
+.clicked {
+  transform: translateY(-80%);
+  transition: all 100ms;
+}
+
+.nav > ul > li:not(:last-child) {
+  margin-right: 1.25em;
+}
+
+.nav > ul > li > div > .title {
+  font-size: 0.75rem;
+  font-weight: 400;
+
+  position: absolute;
+  top: 4em;
+
+  opacity: 0;
+
+  transition: all 100ms;
+}
+
+.nav > ul > li > div.clicked > .title {
+  opacity: 1;
+  transition: all 100ms;
+}
+
+.clickCircle {
+  width: 2.2em;
+  height: 2.2em;
+  background-color: #fdff00;
+  border: 5px solid #222;
+  border-radius: 50%;
+
+  position: absolute;
+  top: -1.6em;
+  transform: translateX(37%);
+  z-index: 1;
+
+  transition: all 300ms;
+}
+
+.avoid-clicks {
+  pointer-events: none;
+}
+
+.disappear {
+  opacity: 0;
+
+  transform: translateY(1.1em);
+}

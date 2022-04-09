@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="./navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <ul>
+        <li>
+          <div data-id="1" class="clicked">
+            <span class="material-icons ic avoid-clicks"> home </span>
+            <span class="title avoid-clicks">Home</span>
+          </div>
+        </li>
+        <li>
+          <div data-id="2">
+            <span class="material-icons ic avoid-clicks"> person_outline </span>
+            <span class="title avoid-clicks">User</span>
+          </div>
+        </li>
+        <li>
+          <div data-id="3">
+            <span class="material-icons ic avoid-clicks"> mode_comment </span>
+            <span class="title avoid-clicks">Chat</span>
+          </div>
+        </li>
+        <li>
+          <div data-id="4">
+            <span class="material-icons ic avoid-clicks"> photo_camera </span>
+            <span class="title avoid-clicks avoid-clicks">Camera</span>
+          </div>
+        </li>
+        <li>
+          <div data-id="5">
+            <span class="material-icons ic avoid-clicks"> settings </span>
+            <span class="title avoid-clicks">Setting</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="clickCircle"></div>
+    </nav>
+  </body>
+
+  <script>
+    const ulEl = document.querySelector('.nav > ul');
+    const divListEl = document.querySelectorAll('.nav > ul > li > div');
+    const circleEl = document.querySelector('.clickCircle');
+
+    ulEl.addEventListener('click', e => {
+      const clickDivId = e.target.dataset.id;
+      divListEl.forEach(div => {
+        const currentId = div.dataset.id;
+
+        if (clickDivId === undefined) {
+          circleEl.classList.add('disappear');
+        } else {
+          circleEl.classList.remove('disappear');
+        }
+
+        if (currentId === clickDivId) {
+          div.classList.add('clicked');
+          circleEl.style.transform = `translateX(${
+            (currentId - 1) * 165 + 37
+          }%)`;
+        } else {
+          div.classList.remove('clicked');
+        }
+      });
+    });
+  </script>
+</html>
