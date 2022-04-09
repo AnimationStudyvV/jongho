@@ -47,13 +47,22 @@
           </div>
         </li>
       </ul>
+
+      <div class="clickCircle"></div>
     </nav>
   </body>
 
   <script>
     const ulEl = document.querySelector('.nav > ul');
     const divListEl = document.querySelectorAll('.nav > ul > li > div');
+    const circleEl = document.querySelector('.clickCircle');
+    // 89 = 4.45
 
+    // 22px
+    // 111
+    // 200
+    // 289
+    // 378
     ulEl.addEventListener('click', e => {
       // 클릭한 디브의 아이디를 가져온다.
       const clickDivId = e.target.dataset.id;
@@ -63,6 +72,8 @@
 
         if (currentId === clickDivId) {
           div.classList.add('clicked');
+          // 원의 레프트 값이 -3.35 + (아이디 * 4.45)
+          circleEl.style.left = `${-3.35 + currentId * 4.45}em`;
         } else {
           div.classList.remove('clicked');
         }

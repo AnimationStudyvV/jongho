@@ -56,13 +56,15 @@ body {
 
   cursor: pointer;
 
+  z-index: 2;
+
   /* transition-property: transform;
   transition-timing-function: ease-in-out;
   transition-delay: 100ms; */
 }
 
 .clicked {
-  transform: translateY(-70%);
+  transform: translateY(-80%);
   transition: all 100ms;
 }
 
@@ -78,7 +80,7 @@ body {
   font-weight: 400;
 
   position: absolute;
-  top: 3em;
+  top: 4em;
 
   opacity: 0;
 
@@ -88,6 +90,22 @@ body {
 .nav > ul > li > div.clicked > .title {
   opacity: 1;
   transition: all 100ms;
+}
+
+.clickCircle {
+  width: 2em;
+  height: 2em;
+  background-color: #30ff00;
+  border: 5px solid #222;
+  border-radius: 50%;
+
+  position: absolute;
+  top: -1.5em;
+  left: 1.1em;
+
+  z-index: 1;
+
+  transition: all 300ms;
 }
 
 /* utils */
