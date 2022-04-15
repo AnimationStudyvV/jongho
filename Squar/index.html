@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="./Squar.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="section">
+      <div id="square"></div>
+    </section>
+
+    <script>
+      const squareEl = document.querySelector('#square');
+      const direction = [
+        { d: 'bottom right', r: 'rotate(90deg)', m: '200px' },
+        { d: 'bottom left', r: 'rotate(180deg)', m: '200px' },
+        // { d: 'top left', r: 'rotate(90deg)', m: '200px' },
+        // { d: 'bottom left', r: 'rotate(90deg)', m: '200px' },
+      ];
+      let idx = 0;
+
+      const interval = setInterval(() => {
+        console.log(idx);
+        squareEl.style.transformOrigin = direction[idx].d;
+        squareEl.style.transform = direction[idx].r;
+        squareEl.style.right = -idx * 200 + 'px';
+        squareEl.style.transition = 'all 700ms';
+        idx += 1;
+        if (idx >= direction.length) {
+          idx = 0;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
